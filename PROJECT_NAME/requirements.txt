@@ -1,0 +1,9 @@
+boto
+django
+django-compressor
+django-libsass
+django-storages
+djangorestframework
+gunicorn
+psycopg2
+raven

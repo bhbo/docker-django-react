@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    {% block css %}
+    <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Raleway:400,700">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static "scss/main.scss" %}">
+    {% endcompress %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block js %}
+    {% compress js %}
+    <script src="{% static "js/main.js" %}"></script>
+    {% endcompress %}
+    {% endblock %}
+  </body>
+</html>

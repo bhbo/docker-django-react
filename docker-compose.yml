@@ -1,32 +1,17 @@
-version: '2'
-
-services:
-    postgres:
-        image: postgres:9.4
-        env_file: ./env/dev
-        ports:
-            - '5432:5432'
-        volumes:
-            - ./pgdata:/var/lib/postgresql/data
-
-    client:
-        image: node:6.3
-        working_dir: /project/client
-        command: npm run-script develop
-        ports:
-            - '9000:9000'
-        volumes:
-            - ./client:/project/client
-
-    server:
-        build: ./server
-        env_file: ./env/dev
-        working_dir: /project/server
-        command: python manage.py runserver 0.0.0.0:8000
-        links:
-           - client
-           - postgres
-        ports:
-            - '80:8000'
-        volumes:
-            - ./server:/project/server
+ version: '2'
+ services:
+   db:
+     image: postgres
+     ports:
+       - "5432:5432"
+     volumes:
+       - /var/lib/postgresql/data
+   web:
+     build: .
+     command: python manage.py runserver 0.0.0.0:8000
+     volumes:
+       - .:/code
+     ports:
+       - "8000:8000"
+     depends_on:
+       - db

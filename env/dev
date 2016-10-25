@@ -1,4 +1,4 @@
-DJANGO_SECRET_KEY=django_secret_key
-POSTGRES_DB=project_db
-POSTGRES_USER=project_user
-POSTGRES_PASSWORD=project_pass
+DJANGO_SECRET_KEY=dsaddsf7df6d87g68dfg8df7b68df7byd8fb7fdb
+POSTGRES_DB=workflow
+POSTGRES_USER=workflow-user
+POSTGRES_PASSWORD=Workflow
